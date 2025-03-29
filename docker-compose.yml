@@ -20,6 +20,20 @@ services:
       timeout: 5s
       retries: 5
 
+  snaplink-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: snaplink-service
+    container_name: snaplink-service
+    restart: unless-stopped
+    depends_on:
+      snaplink-postgres-database:
+        condition: service_healthy
+    environment:
+      DB_CONNECTION: postgres://snaplink:${POSTGRES_PASSWORD}@snaplink-postgres-database:5432/snaplink
+    ports:
+      - "8080:8080"
+
 volumes:
   postgres_data:
-  redis_data:

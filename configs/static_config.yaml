@@ -67,9 +67,9 @@ components_manager:
             task_processor: main-task-processor
 
         handler-get-url:
-            path: /api/{id}
+            path: /t/{id}
             method: GET
-            task_processor: monitor-task-processor
+            task_processor: main-task-processor
 
         postgres-snaplink-database:
             dbconnection: $dbconnection
