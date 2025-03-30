@@ -43,6 +43,7 @@ services:
     container_name: snaplink-telegram-bot
     environment:
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      EXTERNAL_API_URL: ${EXTERNAL_API_URL}
     depends_on:
       - snaplink-service
 
