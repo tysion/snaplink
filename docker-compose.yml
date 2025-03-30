@@ -35,5 +35,16 @@ services:
     ports:
       - "8080:8080"
 
+  snaplink-telegram-bot:
+    build:
+      context: ./telegram
+      dockerfile: Dockerfile
+    image: snaplink-telegram-bot
+    container_name: snaplink-telegram-bot
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+    depends_on:
+      - snaplink-service
+
 volumes:
   postgres_data:
